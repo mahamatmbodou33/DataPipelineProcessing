@@ -1,0 +1,13 @@
+
+{
+  "fileLocations": [
+    {
+      "URIs": [
+        "https://csv-final-data-66.s3.us-east-1.amazonaws.com/run-1761066234122-part-r-00000.csv"
+      ]
+    }
+  ],
+  "globalUploadSettings": {
+    "textqualifier": "\""
+  }
+}
