@@ -5,7 +5,8 @@ AWS Glue is then used for additional ETL (Extract, Transform, Load) operations, 
 
 ## Architectural Diagram
 <img width="695" height="319" alt="Screenshot 2025-10-22 152123" src="https://github.com/user-attachments/assets/436afff4-9906-46f8-b2ca-3c1eb961ff70" />
-##  Create Three S3 Buckets
+
+## Create Three S3 Buckets
 - csv-raw-data for raw data
 - csv-processed-data for processed data
 - csv-final-data for final data
