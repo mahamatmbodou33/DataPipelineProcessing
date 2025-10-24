@@ -12,39 +12,39 @@ AWS Glue is then used for additional ETL (Extract, Transform, Load) operations, 
 - csv-final-data for final data
 - Region: Choose us-east-1
 ## Configure IAM Roles and Policies
--Create IAM roles to grant permissions to Lambda and AWS Glue.
+- Create IAM roles to grant permissions to Lambda and AWS Glue.
 ### Create an IAM Role for Lambda
--Go to the IAM Console and click Create role.
--Select AWS Service as the trusted entity.
--Attach the following policies:
+- Go to the IAM Console and click Create role.
+- Select AWS Service as the trusted entity.
+- Attach the following policies:
 AmazonS3FullAccess
 AWSGlueServiceRole
 ### Create an IAM Role for Glue
--Go to the IAM Console and click Create role.
--Select AWS Service as the trusted entity.
--Attach the following policies:
--AmazonS3FullAccess
--AWSGlueServiceRole
+- Go to the IAM Console and click Create role.
+- Select AWS Service as the trusted entity.
+- Attach the following policies:
+- AmazonS3FullAccess
+- AWSGlueServiceRole
 ## Set Up Amazon QuickSight
--In the AWS Console, search for QuickSight and open the service.
--If you don’t have an account, click Sign up for QuickSight.
--Add your email address.
--Check Use IAM federated identities & QuickSight-managed users.
--Choose the US-East region (same region as your buckets).
--Add a QuickSight Account Name.
--For the IAM role, check Use QuickSight-managed role (default).
--Configure QuickSight Settings:
--Under Allow Access, click Select S3 Buckets.
--Select the three S3 buckets you created earlier and click Finish.
--Uncheck Add Pixel Perfect Reports and click Finish.
+- In the AWS Console, search for QuickSight and open the service.
+- If you don’t have an account, click Sign up for QuickSight.
+- Add your email address.
+- Check Use IAM federated identities & QuickSight-managed users.
+- Choose the US-East region (same region as your buckets).
+- Add a QuickSight Account Name.
+- For the IAM role, check Use QuickSight-managed role (default).
+- Configure QuickSight Settings:
+- Under Allow Access, click Select S3 Buckets.
+- Select the three S3 buckets you created earlier and click Finish.
+- Uncheck Add Pixel Perfect Reports and click Finish.
 QuickSight is now ready to access and visualize data from S3!
 ##  Create a Lambda Function
 Create a Lambda function to automate the ingestion and preprocessing of CSV files.
 This function will trigger automatically when a file is uploaded to the raw data S3 bucket.
--Choose Author from scratch.
--Function Name: CSVPreprocessorFunction
--Runtime: Python 3.13
--Role: Use an existing role and select Lambda-S3-Glue-Role created earlier.
+- Choose Author from scratch.
+- Function Name: CSVPreprocessorFunction
+- Runtime: Python 3.13
+- Role: Use an existing role and select Lambda-S3-Glue-Role created earlier.
 ## Write and Deploy the Lambda Function Code
 Write a basic preprocessing Lambda function to clean and filter CSV files.
 The code can be found in your GitHub repository folder.
@@ -68,9 +68,9 @@ If configured correctly, the Lambda function will trigger and store the processe
 - Navigate to your csv-processed-data bucket.
 - Verify that the processed CSV file is present in the correct folder.
 ## Set Up an AWS Glue Data Catalog
--Navigate to the AWS Glue Console.
--Click Data Catalogs → Add Database.
--Database Name: csv_data_pipeline_catalog
+- Navigate to the AWS Glue Console.
+- Click Data Catalogs → Add Database.
+- Database Name: csv_data_pipeline_catalog
 - click Create.
 ## Create a Crawler to Discover the Data Schema
 - A crawler scans the data and creates metadata tables automatically.
@@ -114,10 +114,10 @@ If the file lacks a .csv extension:
 Once confirmed, the file is ready for visualization.
 Click on the CSV file and copy its Object URL for the next steps.
 ## Connect to the Data Source in QuickSight
--In the QuickSight Console, go to Datasets → Click New Dataset.
--Select S3 as the data source.
--Data Source Name: ProcessedCSV
--Manifest File: Create a JSON manifest file locally with the following content:
+- In the QuickSight Console, go to Datasets → Click New Dataset.
+- Select S3 as the data source.
+- Data Source Name: ProcessedCSV
+- Manifest File: Create a JSON manifest file locally with the following content:
 
 {
   "fileLocations": [
@@ -137,7 +137,7 @@ Click on the CSV file and copy its Object URL for the next steps.
 - Create a dashboard to visualize insights from the transformed CSV data.
 - Click Add to create a new analysis.
 - Select the ProcessedCSVData dataset.
-# Create visualizations such as:
+### Create visualizations such as:
 - Bar Chart: Compare values across columns.
 - Line Chart: Analyze trends over time.
 ### QuickSight Dashboard (Visualization Output)
