@@ -1,4 +1,4 @@
-### Step-by-Step Guide
+# Step-by-Step Guide
 This project involves building a serverless data pipeline on AWS for processing CSV files. The pipeline automates the ingestion, transformation, and visualization of data. CSV files are uploaded to a raw data S3 bucket (csv-raw-data), which triggers an AWS Lambda function to preprocess the data and store it in the processed data bucket (csv-processed-data).
 
 AWS Glue is then used for additional ETL (Extract, Transform, Load) operations, and the final data is stored in the final data bucket (csv-final-data). Finally, Amazon QuickSight is used to create interactive dashboards and reports for visualizing the processed data.
@@ -13,13 +13,13 @@ AWS Glue is then used for additional ETL (Extract, Transform, Load) operations, 
 - Region: Choose us-east-1
 ## Configure IAM Roles and Policies
 -Create IAM roles to grant permissions to Lambda and AWS Glue.
-# Create an IAM Role for Lambda
+### Create an IAM Role for Lambda
 -Go to the IAM Console and click Create role.
 -Select AWS Service as the trusted entity.
 -Attach the following policies:
 AmazonS3FullAccess
 AWSGlueServiceRole
-# Create an IAM Role for Glue
+### Create an IAM Role for Glue
 -Go to the IAM Console and click Create role.
 -Select AWS Service as the trusted entity.
 -Attach the following policies:
@@ -85,21 +85,21 @@ If configured correctly, the Lambda function will trigger and store the processe
 ## Create and Configure an AWS Glue Job Using Visual ETL
 - In the AWS Glue Console, go to AWS Glue Studio.
 - Click Create job → Select Visual ETL.
-# Define the Source:
+### Define the Source:
 - Click Add node → Data source.
 - Choose AWS Glue Data Catalog.
 - Select the database csv_data_pipeline_catalog.
 - Choose the table created by the crawler.
-  # Add Transformations:
+  ### Add Transformations:
 - Click the + button after the source block → Select Change Schema for basic transformations.
 - Check the column(s) to modify (e.g., icon column).
-  # Define the Target:
+  ### Define the Target:
 - Click the + button after the transformation → Select Data target.
 - Choose S3 as the target.
 - Enter the S3 path where the transformed file should be stored (e.g., s3://csv-final-data/).
 - Format: CSV
 - Compression: GZIP
-# Configure Job Properties:
+### Configure Job Properties:
 - Job Name: CSVDataTransformation
 - IAM Role: Select an existing Glue role with S3 access.
 - Leave other settings as default.
@@ -138,8 +138,8 @@ Click on the CSV file and copy its Object URL for the next steps.
 - Click Add to create a new analysis.
 - Select the ProcessedCSVData dataset.
 # Create visualizations such as:
--Bar Chart: Compare values across columns.
--Line Chart: Analyze trends over time.
+- Bar Chart: Compare values across columns.
+- Line Chart: Analyze trends over time.
 ### QuickSight Dashboard (Visualization Output)
 Below is the sample output showing the final dashboard running on Amazon QuickSight, displaying processed CSV data with interactive charts and insights.
 
